@@ -1,65 +1,728 @@
-# AI 秋招助手（Local Edition）
+<div align="center">
 
-本地优先（Local-first）的秋招知识管理系统。不依赖任何后端 / 数据库 / 登录系统，所有数据保存在浏览器的 IndexedDB 中。
+# 🎯 AI 秋招助手 | Career Assistant
 
-## 技术栈
+### 面向秋招求职场景的 Local-first 求职管理 Web 应用
 
-React 18 + TypeScript + Vite + Tailwind CSS + shadcn/ui（手写组件源码，未使用需联网的 CLI）+ IndexedDB。
+将 **简历管理、岗位投递、面试记录、错题复盘、面经沉淀** 整合到一个统一的求职工作台中。
 
-## 快速开始
+<br />
 
-```bash
-npm install
-npm run dev
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![IndexedDB](https://img.shields.io/badge/Data-IndexedDB-1677FF)](#-local-first-架构)
+[![Deployment](https://img.shields.io/badge/Deployment-EdgeOne-00A4FF)](https://career-assistant-web.edgeone.dev)
+
+<br />
+
+### 🌐 [在线体验 → career-assistant-web.edgeone.dev](https://career-assistant-web.edgeone.dev)
+
+</div>
+
+---
+
+## ✨ 项目简介
+
+**AI 秋招助手** 是一个围绕大学生秋招全过程设计的个人求职管理系统。
+
+在实际求职过程中，简历版本、岗位 JD、投递进度、面试问题、复盘记录和面经往往分散在多个文档和平台中，难以形成持续积累。
+
+本项目希望将这些信息统一沉淀到一个系统中，形成完整的求职成长闭环：
+
+```text
+简历管理
+   ↓
+岗位投递
+   ↓
+面试准备
+   ↓
+真实面试
+   ↓
+面试复盘
+   ↓
+错题沉淀
+   ↓
+持续优化
 ```
 
-然后打开命令行输出的本地地址（默认 http://localhost:5173）。
+当前版本采用 **Local-first** 架构，不依赖后端服务器、数据库或登录系统，数据直接保存在浏览器的 **IndexedDB** 中。
 
-## 当前进度（第一轮：项目骨架）
+---
 
-- ✅ `package.json` / `vite.config.ts` / `tsconfig.*.json` / `tailwind.config.ts`
-- ✅ `src` 目录结构（components / pages / db / hooks / lib / types）
-- ✅ 路由（react-router-dom，Hash 模式，纯前端无需服务器配置）
-- ✅ Layout：左侧 Sidebar + 右侧内容区域
-- ✅ Sidebar 六个一级入口：首页 / 简历 / 岗位 / 面试 / 错题 / 面经，底部数据管理入口
-- ✅ 各页面目前为占位内容（EmptyState），路由与布局已经可以正常运行
+## 🚀 在线体验
 
-后续几轮会依次完善：Dashboard 首页内容与统计卡片 → 简历/岗位/面试/错题四大核心页面 → IndexedDB 数据层接入 → 导入导出/搜索/标签/动画/响应式体验优化。
+> **Production Demo**
 
-## 目录结构
+### 👉 https://career-assistant-web.edgeone.dev
 
+项目已部署至 **Tencent Cloud EdgeOne**。
+
+GitHub `main` 分支更新后，可触发新的生产构建与部署流程。
+
+---
+
+## 🧩 核心功能
+
+| 模块 | 功能 |
+| --- | --- |
+| 🏠 首页 Dashboard | 汇总投递、面试、Offer、错题、高频问题及近期任务 |
+| 📄 简历管理 | 维护基础简历、经历及版本信息 |
+| 💼 岗位管理 | 管理公司、岗位、JD、投递状态及标签 |
+| 💬 面试管理 | 结构化记录真实面试问题、回答及复盘 |
+| ❌ 错题集 | 沉淀回答不理想的问题，形成长期复习记录 |
+| 📚 面经知识库 | 整理面试经验、问题及求职知识 |
+| 🔍 全局搜索 | 搜索岗位、面试、错题等核心数据 |
+| 💾 数据管理 | 支持本地数据持久化及导入导出 |
+
+---
+
+## 🏠 Dashboard
+
+首页用于快速查看当前秋招进度。
+
+主要展示：
+
+- 投递数量
+- 面试数量
+- Offer 数量
+- 错题数量
+- 高频问题数量
+- 高频标签
+- 最近任务
+- 最近岗位
+
+帮助用户快速了解自己的整体求职状态。
+
+---
+
+## 📄 简历管理
+
+统一维护个人求职经历和基础简历信息。
+
+当前模块主要承担个人求职资料管理功能，并为未来进一步实现：
+
+- JD 定向简历分析
+- 简历版本管理
+- AI 简历优化
+- 岗位匹配分析
+
+提供数据基础。
+
+---
+
+## 💼 岗位管理
+
+记录目标岗位的完整投递信息。
+
+包括：
+
+- 公司名称
+- 岗位名称
+- JD 信息
+- 投递状态
+- 标签
+- 投递时间
+- 相关任务
+
+通过统一的岗位池管理整个秋招投递过程。
+
+---
+
+## 💬 面试管理
+
+将每一次真实面试结构化保存。
+
+可记录：
+
+- 公司
+- 岗位
+- 面试时间
+- 面试问题
+- 用户回答
+- 复盘内容
+- 问题标签
+
+避免面试结束后信息快速遗忘，为后续复盘提供基础。
+
+---
+
+## ❌ 错题集
+
+将面试过程中回答不理想的问题沉淀为长期可复习的内容。
+
+通过错题积累，可以逐步发现自己的高频薄弱点，例如：
+
+- 项目介绍
+- 产品思维
+- 数据分析
+- 业务理解
+- 结构化表达
+- 行为面试
+
+最终形成个人专属的面试问题库。
+
+---
+
+## 📚 面经知识库
+
+用于整理秋招过程中积累的：
+
+- 面试经验
+- 高频问题
+- 公司信息
+- 岗位知识
+- 复盘总结
+
+让零散的求职经验逐渐形成可长期复用的知识库。
+
+---
+
+## 🛠 技术栈
+
+### Frontend
+
+| 技术 | 用途 |
+| --- | --- |
+| React 18 | UI 与组件体系 |
+| TypeScript | 类型安全 |
+| Vite | 开发与生产构建 |
+| React Router | 前端路由 |
+| Tailwind CSS | 页面样式 |
+| shadcn/ui 风格组件 | 基础 UI 组件体系 |
+
+### Data
+
+| 技术 | 用途 |
+| --- | --- |
+| IndexedDB | 浏览器本地持久化 |
+| Repository Pattern | 数据访问层 |
+| React Hooks | 页面与数据层连接 |
+| Publish / Subscribe | 跨页面数据刷新 |
+
+### Engineering
+
+| 技术 | 用途 |
+| --- | --- |
+| Git | 版本管理 |
+| GitHub | 代码托管 |
+| Vite Build | Production Build |
+| Tencent Cloud EdgeOne | CI/CD 与线上部署 |
+
+---
+
+## 🧠 Local-first 架构
+
+当前版本采用 Local-first 数据架构。
+
+```text
+┌─────────────────────┐
+│      React UI       │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│    React Hooks      │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│  Repository Layer   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│      IndexedDB      │
+└─────────────────────┘
 ```
-career-assistant/
+
+页面组件不会直接操作 IndexedDB，而是统一通过 Repository 数据访问层进行读写。
+
+例如：
+
+```text
+Jobs Page
+    ↓
+useJobs()
+    ↓
+jobRepository
+    ↓
+IndexedDB
+```
+
+这样可以降低 UI 与底层存储之间的耦合。
+
+未来如果需要将 IndexedDB 替换为：
+
+- REST API
+- Supabase
+- PostgreSQL
+- MySQL
+- 云端数据库
+
+可以尽量减少对 UI 层的改动。
+
+---
+
+## 💾 数据持久化
+
+当前版本不依赖传统后端服务器。
+
+```text
+Browser
+   ↓
+IndexedDB
+```
+
+Local-first 方案具有以下特点：
+
+- ✅ 无需部署数据库
+- ✅ 无需用户注册
+- ✅ 无需登录系统
+- ✅ 数据读取速度快
+- ✅ 开发与部署成本低
+- ✅ 用户数据保存在本地浏览器
+- ✅ 支持后续扩展数据导入 / 导出
+
+---
+
+## 🏗 项目结构
+
+```text
+career-assistant-web/
+│
 ├── index.html
 ├── package.json
 ├── vite.config.ts
 ├── tailwind.config.ts
-├── tsconfig.json / tsconfig.app.json / tsconfig.node.json
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+│
 └── src/
-    ├── main.tsx            # 入口，挂载 HashRouter
-    ├── App.tsx             # 路由表 + 首次启动播种数据
-    ├── index.css           # Tailwind 基础样式 + 设计变量
-    ├── lib/
-    │   └── utils.ts        # cn() 等通用工具函数
-    ├── types/
-    │   └── index.ts        # 全部领域类型（Resume / Job / Interview / Mistake ...）
-    ├── db/                 # 数据层（IndexedDB，与 UI 完全解耦）
-    │   ├── database.ts     # 原生 IndexedDB 封装（增删改查）
-    │   ├── events.ts       # 轻量发布订阅，用于跨页面数据同步
-    │   ├── seed.ts         # 首次启动写入演示数据
-    │   ├── exportImport.ts # 备份导出 / 导入
-    │   └── repositories/   # 每个实体一个 Repository
-    ├── hooks/              # 对 Repository 的 React Hook 封装（自动订阅刷新）
+    │
+    ├── main.tsx
+    ├── App.tsx
+    ├── index.css
+    │
     ├── components/
-    │   ├── ui/             # shadcn/ui 风格基础组件（Button / Card / Dialog ...）
-    │   ├── layout/          # Sidebar / AppShell
-    │   └── common/          # PageHeader / EmptyState / TagInput 等通用组件
-    └── pages/               # Dashboard / Resume / Jobs / Interviews / Mistakes / Library / Settings
+    │   ├── common/
+    │   ├── dashboard/
+    │   ├── interview/
+    │   ├── job/
+    │   ├── layout/
+    │   ├── mistake/
+    │   ├── resume/
+    │   ├── search/
+    │   └── ui/
+    │
+    ├── db/
+    │   ├── database.ts
+    │   ├── events.ts
+    │   ├── exportImport.ts
+    │   ├── seed.ts
+    │   │
+    │   └── repositories/
+    │       ├── companyNoteRepo.ts
+    │       ├── experienceRepo.ts
+    │       ├── interviewRepo.ts
+    │       ├── jobRepo.ts
+    │       ├── mistakeRepo.ts
+    │       ├── resumeRepo.ts
+    │       ├── resumeVersionRepo.ts
+    │       ├── tagRepo.ts
+    │       ├── taskRepo.ts
+    │       └── userRepo.ts
+    │
+    ├── hooks/
+    ├── lib/
+    ├── pages/
+    ├── services/
+    ├── types/
+    └── utils/
 ```
 
-## 设计规范
+---
 
-- 主色：`#1677FF`
-- 卡片：白底 / 圆角 12px / 内边距 24px / 边框 `1px solid #E5E6EB`
-- 标签：背景 `#E6F4FF`，文字 `#1677FF`，圆角胶囊
-- 风格参考 Notion + Linear：克制的留白、清晰的层级、无多余装饰
+## 🗃 数据层设计
+
+项目没有把 CRUD 逻辑直接写在页面组件中，而是建立独立的数据访问层。
+
+```text
+db/
+│
+├── database.ts
+│
+├── events.ts
+│
+├── exportImport.ts
+│
+├── seed.ts
+│
+└── repositories/
+```
+
+### Repository Pattern
+
+```text
+React Component
+      ↓
+React Hook
+      ↓
+Repository
+      ↓
+IndexedDB
+```
+
+Repository 负责统一管理数据的：
+
+```text
+Create
+Read
+Update
+Delete
+```
+
+页面只关注业务逻辑和 UI 展示。
+
+---
+
+## 🔄 数据同步机制
+
+项目通过轻量事件机制实现跨页面数据更新。
+
+```text
+Page A 修改数据
+       ↓
+Repository
+       ↓
+IndexedDB
+       ↓
+Publish Event
+       ↓
+Hooks 监听
+       ↓
+Page B 自动刷新
+```
+
+避免不同页面之间直接产生复杂依赖。
+
+---
+
+## 🎨 UI 设计
+
+整体视觉风格参考 **Notion / Linear** 类型的效率工具。
+
+设计目标：
+
+> 清晰、克制、高信息密度。
+
+### Design Tokens
+
+```text
+Primary
+#1677FF
+
+Card
+White Background
+12px Border Radius
+24px Padding
+1px solid #E5E6EB
+
+Tag
+Background: #E6F4FF
+Text: #1677FF
+```
+
+页面整体采用：
+
+```text
+┌────────────┬─────────────────────────┐
+│            │                         │
+│  Sidebar   │      Main Content       │
+│            │                         │
+│            │                         │
+└────────────┴─────────────────────────┘
+```
+
+---
+
+## ⚙️ 本地运行
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/1948585100-droid/career-assistant-web.git
+```
+
+### 2. Enter Project
+
+```bash
+cd career-assistant-web
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Start Development Server
+
+```bash
+npm run dev
+```
+
+默认访问：
+
+```text
+http://localhost:5173
+```
+
+---
+
+## 📦 Production Build
+
+执行：
+
+```bash
+npm run build
+```
+
+项目通过 TypeScript 检查后，由 Vite 生成生产环境文件：
+
+```text
+dist/
+```
+
+---
+
+## ☁️ Deployment
+
+项目当前部署于：
+
+### Tencent Cloud EdgeOne
+
+部署链路：
+
+```text
+Local Development
+        │
+        ▼
+    Git Commit
+        │
+        ▼
+      GitHub
+        │
+        ▼
+ EdgeOne Git Integration
+        │
+        ▼
+    npm install
+        │
+        ▼
+   npm run build
+        │
+        ▼
+       dist
+        │
+        ▼
+Production Deployment
+```
+
+### Production URL
+
+🌐 https://career-assistant-web.edgeone.dev
+
+---
+
+## 💡 项目设计亮点
+
+### 1. Local-first 数据架构
+
+使用 IndexedDB 实现浏览器端结构化数据持久化，无需后端即可完成完整 Web MVP。
+
+### 2. Repository Pattern
+
+通过 Repository Layer 将数据访问逻辑与 React UI 解耦。
+
+### 3. Hooks 数据封装
+
+页面通过 React Hooks 获取和修改业务数据，降低组件复杂度。
+
+### 4. 结构化求职数据
+
+将求职过程拆分为：
+
+```text
+Resume
+Job
+Interview
+Mistake
+Task
+Tag
+Experience
+```
+
+为后续 AI 分析提供结构化数据基础。
+
+### 5. 完整部署链路
+
+项目已完成：
+
+```text
+Development
+   ↓
+Git
+   ↓
+GitHub
+   ↓
+Production Build
+   ↓
+EdgeOne CI/CD
+   ↓
+Online Demo
+```
+
+---
+
+## 🤖 AI 能力规划
+
+当前版本主要完成求职管理系统和底层数据架构。
+
+下一阶段计划逐步接入 AI 能力。
+
+```text
+PDF 简历上传
+      ↓
+简历内容解析
+      ↓
+结构化简历数据库
+      ↓
+目标岗位 JD
+      ↓
+JD 关键词解析
+      ↓
+岗位匹配分析
+      ↓
+简历优化建议
+      ↓
+面试问题预测
+      ↓
+真实面试
+      ↓
+录音 / 文字稿解析
+      ↓
+AI 面试复盘
+      ↓
+自动生成错题
+      ↓
+持续训练
+```
+
+---
+
+## 🗺 Roadmap
+
+### Phase 1 — Web MVP
+
+- [x] Dashboard
+- [x] 简历管理
+- [x] 岗位管理
+- [x] 面试管理
+- [x] 错题管理
+- [x] 面经知识库
+- [x] IndexedDB 数据层
+- [x] Repository Pattern
+- [x] 数据导入 / 导出
+- [x] 搜索与标签
+- [x] Production Build
+- [x] GitHub 代码管理
+- [x] EdgeOne 在线部署
+
+### Phase 2 — AI Resume
+
+- [ ] PDF 简历上传
+- [ ] 简历结构化解析
+- [ ] JD 内容解析
+- [ ] 岗位关键词提取
+- [ ] 简历与 JD 匹配分析
+- [ ] AI 简历修改建议
+
+### Phase 3 — AI Interview
+
+- [ ] 面试录音上传
+- [ ] Speech-to-Text
+- [ ] 面试官 / 候选人角色识别
+- [ ] 面试 QA 自动整理
+- [ ] AI 回答评价
+- [ ] AI 优化答案
+- [ ] 自动生成错题
+
+### Phase 4 — Career Copilot
+
+- [ ] 个性化能力画像
+- [ ] 高频薄弱问题分析
+- [ ] AI 模拟面试
+- [ ] 岗位知识库
+- [ ] 求职成长趋势
+- [ ] 云端数据同步
+
+---
+
+## 🎯 最终目标
+
+项目最终希望形成一套完整的 AI 求职成长系统：
+
+```text
+个人简历
+    ↓
+岗位 JD
+    ↓
+简历优化
+    ↓
+面试准备
+    ↓
+真实面试
+    ↓
+AI 复盘
+    ↓
+错题沉淀
+    ↓
+能力提升
+    ↓
+下一次面试
+```
+
+让用户的每一次投递和面试，都能够转化为下一次求职过程中的有效经验。
+
+---
+
+## 📌 Project Status
+
+```text
+Status: Web MVP ✅
+Deployment: Production ✅
+AI Integration: Planned 🚧
+```
+
+当前已经完成：
+
+**产品设计 → 前端开发 → 数据架构 → 本地持久化 → Git → GitHub → Production Build → CI/CD → Online Demo**
+
+下一阶段将重点完善 AI 能力以及真实求职场景下的数据闭环。
+
+---
+
+<div align="center">
+
+### 🎯 Career Assistant
+
+**让每一次面试，都成为下一次面试的训练数据。**
+
+<br />
+
+[在线体验](https://career-assistant-web.edgeone.dev)
+
+</div>
