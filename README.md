@@ -17,7 +17,7 @@
 
 <br />
 
-### 🌐 [在线体验 → career-assistant-web.edgeone.dev](https://career-assistant-web.edgeone.dev)
+### 🌐 [在线体验 → demo.career-assistant-ai.xyz](https://demo.career-assistant-ai.xyz)
 
 </div>
 
@@ -55,7 +55,7 @@
 
 > **Production Demo**
 
-### 👉 https://career-assistant-web.edgeone.dev
+### 👉 [https://career-assistant-web.edgeone.dev](https://demo.career-assistant-ai.xyz)
 
 项目已部署至 **Tencent Cloud EdgeOne**。
 
