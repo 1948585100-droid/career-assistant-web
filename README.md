@@ -13,7 +13,8 @@
 [![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![IndexedDB](https://img.shields.io/badge/Data-IndexedDB-1677FF)](#-local-first-架构)
-[![Deployment](https://img.shields.io/badge/Deployment-EdgeOne-00A4FF)](https://career-assistant-web.edgeone.dev)
+[![Deployment](https://img.shields.io/badge/Deployment-EdgeOne-00A4FF)](https://demo.career-assistant-ai.xyz)
+[![HTTPS](https://img.shields.io/badge/HTTPS-Enabled-success)](https://demo.career-assistant-ai.xyz)
 
 <br />
 
@@ -47,7 +48,7 @@
 持续优化
 ```
 
-当前版本采用 **Local-first** 架构，不依赖后端服务器、数据库或登录系统，数据直接保存在浏览器的 **IndexedDB** 中。
+当前版本采用 **Local-first** 架构，不依赖后端服务器、远程数据库或登录系统，数据直接保存在浏览器的 **IndexedDB** 中。
 
 ---
 
@@ -55,9 +56,9 @@
 
 > **Production Demo**
 
-### 👉 [https://career-assistant-web.edgeone.dev](https://demo.career-assistant-ai.xyz)
+### 👉 [https://demo.career-assistant-ai.xyz](https://demo.career-assistant-ai.xyz)
 
-项目已部署至 **Tencent Cloud EdgeOne**。
+项目已部署至 **Tencent Cloud EdgeOne**，并完成自定义域名、HTTPS 证书及 HTTP → HTTPS 重定向配置。
 
 GitHub `main` 分支更新后，可触发新的生产构建与部署流程。
 
@@ -208,7 +209,7 @@ GitHub `main` 分支更新后，可触发新的生产构建与部署流程。
 | Git | 版本管理 |
 | GitHub | 代码托管 |
 | Vite Build | Production Build |
-| Tencent Cloud EdgeOne | CI/CD 与线上部署 |
+| Tencent Cloud EdgeOne | Git 集成、CI/CD、CDN、自定义域名与 HTTPS 部署 |
 
 ---
 
@@ -267,7 +268,7 @@ IndexedDB
 
 ## 💾 数据持久化
 
-当前版本不依赖传统后端服务器。
+当前版本不依赖传统后端服务器或远程数据库。
 
 ```text
 Browser
@@ -277,13 +278,14 @@ IndexedDB
 
 Local-first 方案具有以下特点：
 
-- ✅ 无需部署数据库
+- ✅ 无需部署后端服务
+- ✅ 无需远程数据库
 - ✅ 无需用户注册
 - ✅ 无需登录系统
 - ✅ 数据读取速度快
 - ✅ 开发与部署成本低
 - ✅ 用户数据保存在本地浏览器
-- ✅ 支持后续扩展数据导入 / 导出
+- ✅ 支持数据导入 / 导出
 
 ---
 
@@ -529,11 +531,25 @@ Local Development
         │
         ▼
 Production Deployment
+        │
+        ▼
+ Custom Domain + HTTPS
 ```
 
 ### Production URL
 
-🌐 https://career-assistant-web.edgeone.dev
+🌐 https://demo.career-assistant-ai.xyz
+
+### Deployment Features
+
+- ✅ GitHub 仓库接入
+- ✅ Production Build
+- ✅ EdgeOne 自动部署
+- ✅ 自定义域名
+- ✅ CNAME DNS 解析
+- ✅ 免费 HTTPS 证书
+- ✅ HTTP → HTTPS 301 重定向
+- ✅ 电脑与移动端公网访问验证
 
 ---
 
@@ -581,6 +597,10 @@ GitHub
 Production Build
    ↓
 EdgeOne CI/CD
+   ↓
+Custom Domain
+   ↓
+HTTPS
    ↓
 Online Demo
 ```
@@ -640,6 +660,9 @@ AI 面试复盘
 - [x] Production Build
 - [x] GitHub 代码管理
 - [x] EdgeOne 在线部署
+- [x] 自定义域名
+- [x] HTTPS 证书
+- [x] HTTP → HTTPS 重定向
 
 ### Phase 2 — AI Resume
 
@@ -704,12 +727,13 @@ AI 复盘
 ```text
 Status: Web MVP ✅
 Deployment: Production ✅
+Custom Domain & HTTPS: ✅
 AI Integration: Planned 🚧
 ```
 
 当前已经完成：
 
-**产品设计 → 前端开发 → 数据架构 → 本地持久化 → Git → GitHub → Production Build → CI/CD → Online Demo**
+**产品设计 → 前端开发 → 数据架构 → 本地持久化 → Git → GitHub → Production Build → CI/CD → 自定义域名 → HTTPS → Online Demo**
 
 下一阶段将重点完善 AI 能力以及真实求职场景下的数据闭环。
 
@@ -723,6 +747,6 @@ AI Integration: Planned 🚧
 
 <br />
 
-[在线体验](https://career-assistant-web.edgeone.dev)
+### 🌐 [在线体验](https://demo.career-assistant-ai.xyz)
 
 </div>
